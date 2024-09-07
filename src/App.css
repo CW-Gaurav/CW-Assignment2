@@ -1,6 +1,7 @@
 .app {
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
 
 .sorting {
@@ -19,6 +20,7 @@
 .main-content {
   display: flex;
   width: 100%;
+  
 }
 
 .filter {
@@ -41,10 +43,10 @@
   margin-bottom: 20px;
   margin-top: 20px;
   display: flex;
-  align-items: center;
-  margin-left: 5px;
+  align-items: left;
+  margin-left: 0px;
   flex: 1;
-  margin-right: 100px;
+  margin-right: auto;
   flex-direction: column;
 }
 
@@ -95,12 +97,28 @@
 }
 
 .clear-button {
-  background: none;      /* No background */
-  border: none;          /* No border */
-  color: blue;           /* Blue text */
-  font-size: 16px;       /* Adjust font size if needed */
-  cursor: pointer;       /* Show pointer on hover */
-  padding: 0;            /* Remove default padding */
+  margin-left: auto; /* Push the button to the right */
+  background: none;
+  border: none;
+  color: blue;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0;
+}
+h2 {
+  margin: 0; /* Remove default margin from h2 */
+  padding: 0;
+}
+.filter-header {
+  display: flex;
+  justify-content: space-between;  /* This makes the two elements spread out on the same line */
+  align-items: center;             /* Vertically centers the items */
+  margin-bottom: 10px;             /* Adds some spacing below the header */
+}
+
+
+.filter img {
+  vertical-align: middle; /* Ensure image is vertically aligned */
 }
 
 .single-line {
