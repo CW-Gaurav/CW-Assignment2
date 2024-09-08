@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const Filter = ({ onFilterChange }) => {
+const Filter = ({ onFilterChange, carCountsByFuel }) => {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(5000000000);
   const [fuel, setFuel] = useState([]);
@@ -96,7 +96,8 @@ const Filter = ({ onFilterChange }) => {
                 type="checkbox"
                 checked={fuel.includes(fuelType)}
                 onChange={() => handleFuelChange(fuelType)}
-              /> {fuelType}
+              />
+              {fuelType} ({carCountsByFuel[fuelType] || 0})
             </label>
           ))}
         </div>

@@ -98,7 +98,7 @@ const cars = [
     rootId: 240,
     rootName: "Range Rover Sport",
     url: "/used/landrover-range-rover-sport-cars-in-gurgaon/ae7822c200508174041/",
-    makeYear: 2018,
+    makeYear: 2018 ,
     carPrice: "1.6 Crore",
     price: 16000000,
     km: "6,000",
@@ -115,13 +115,24 @@ function App() {
   const [filteredCars, setFilteredCars] = useState(cars);
   const [sortOrder, setSortOrder] = useState(''); // lowToHigh or highToLow
 
+  // Function to calculate car counts by fuel type
+  const calculateCarCountsByFuel = (cars) => {
+    const counts = {};
+    cars.forEach((car) => {
+      counts[car.fuel] = (counts[car.fuel] || 0) + 1;
+    });
+    return counts;
+  };
+
+  // Calculate the fuel counts based on the filtered cars
+  const carCountsByFuel = calculateCarCountsByFuel(cars);
+
   const handleFilterChange = (filters) => {
     let updatedCars = cars
       .filter(car => car.price >= filters.minPrice && car.price <= filters.maxPrice)
       .filter(car => filters.fuel.length === 0 || filters.fuel.includes(car.fuel));
     setFilteredCars(updatedCars);
   };
-  
 
   const handleSortChange = (order) => {
     const sortedCars = [...filteredCars].sort((a, b) =>
@@ -135,7 +146,7 @@ function App() {
     <div className="app">
       <Sorting onSortChange={handleSortChange} />
       <div className="main-content">
-        <Filter onFilterChange={handleFilterChange} />
+        <Filter onFilterChange={handleFilterChange} carCountsByFuel={carCountsByFuel} />
         <ProductList cars={filteredCars} />
       </div>
     </div>
