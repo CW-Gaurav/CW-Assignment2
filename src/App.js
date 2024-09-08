@@ -131,9 +131,17 @@ function App() {
     let updatedCars = cars
       .filter(car => car.price >= filters.minPrice && car.price <= filters.maxPrice)
       .filter(car => filters.fuel.length === 0 || filters.fuel.includes(car.fuel));
+    
+      // Apply current sort order after filtering
+    if (sortOrder === 'lowToHigh') {
+      updatedCars = updatedCars.sort((a, b) => a.price - b.price);
+    } else if (sortOrder === 'highToLow') {
+      updatedCars = updatedCars.sort((a, b) => b.price - a.price);
+    }
+  
     setFilteredCars(updatedCars);
   };
-
+  
   const handleSortChange = (order) => {
     const sortedCars = [...filteredCars].sort((a, b) =>
       order === 'lowToHigh' ? a.price - b.price : b.price - a.price
