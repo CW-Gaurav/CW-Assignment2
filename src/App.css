@@ -10,10 +10,11 @@
   border-bottom: 1px solid #ccc;  
   display: flex;
   justify-content: flex-end;
-  width: 63%; /* Takes 3/4th of the available width */
-  margin-left: 340px; /* Align to the right */
+  width: 65%; /* Takes 3/4th of the available width */
+  margin-left: 315px; /* Align to the right */
   margin-right: 0px;
   border-radius: 8px;
+  position: sticky; 
 
 }
 
