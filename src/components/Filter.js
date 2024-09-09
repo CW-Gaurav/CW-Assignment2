@@ -16,7 +16,7 @@ const Filter = ({ onFilterChange, carCountsByFuel }) => {
         fuel,
       });
     }
-  }, [minPrice, maxPrice, fuel, onFilterChange]);
+  }, [minPrice, maxPrice, fuel]);
 
   // Handle resetting all fields
   const handleReset = () => {
